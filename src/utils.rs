@@ -1,6 +1,6 @@
 use tokio::io::AsyncBufReadExt;
 
-async fn process_input(tx: tokio::sync::mpsc::Sender<String>) {
+pub async fn getting_input(tx: tokio::sync::mpsc::Sender<String>) {
     let mut buf = tokio::io::BufReader::new(tokio::io::stdin());
     loop {
         let mut url = String::new();
@@ -13,3 +13,4 @@ async fn process_input(tx: tokio::sync::mpsc::Sender<String>) {
         }
     }
 }
+
