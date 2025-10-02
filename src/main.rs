@@ -21,7 +21,7 @@ async fn main() {
                     rs_crawler::crawler::parse_web_page(content_tx_clone, url).await
                 });
             }
-        });
+        }).await.unwrap();
     });
 
     let crawler_fut = rs_crawler::crawler::init_crawler(url_tx, content_rx);

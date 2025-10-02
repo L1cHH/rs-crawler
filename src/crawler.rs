@@ -41,8 +41,8 @@ pub async fn parse_web_page(
 {
     let response = match reqwest::get(url.clone()).await {
         Ok(res) => res,
-        Err(_) => {
-            println!("Error occurred while requesting web page...");
+        Err(e) => {
+            println!("Error occurred while requesting web page... err: {:?}", e);
             return
         }
     };
